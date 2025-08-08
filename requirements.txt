@@ -3,3 +3,4 @@ flask
 supabase
 firebase_admin
 marshmallow
+dotenv
