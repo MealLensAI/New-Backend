@@ -55,14 +55,8 @@ def create_app():
   """
   app = Flask(__name__)
   
-  # Configure CORS to allow requests from the frontend
-  CORS(
-      app,
-      origins=["https://meallensai.netlify.app", "http://localhost:5173", "http://localhost:3000"],
-      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-      allow_headers=["Content-Type", "Authorization"],
-      supports_credentials=True
-  )
+  # Configure CORS to allow requests from the frontend - most permissive
+  CORS(app, origins="*", supports_credentials=False)
   
   # Add CORS headers to all responses for preflight requests
   @app.after_request
