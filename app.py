@@ -59,13 +59,13 @@ def create_app():
   CORS(
       app,
       resources={
-          r"/api/*": {
-               "origins": "*",
+          r"/*": {  # ✅ Allows all routes
+              "origins": "*",
               "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
               "allow_headers": ["Content-Type", "Authorization"],
               "supports_credentials": True,
               "expose_headers": ["Content-Type", "Authorization"],
-              "max_age": 600  # Cache preflight request for 10 minutes
+              "max_age": 600
           }
       },
       supports_credentials=True
