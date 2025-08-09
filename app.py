@@ -58,16 +58,9 @@ def create_app():
   # Configure CORS to allow requests from the frontend
   CORS(
       app,
-      resources={
-          r"/*": {  # ✅ Allows all routes
-              "origins": "*",
-              "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-              "allow_headers": ["Content-Type", "Authorization"],
-              "supports_credentials": True,
-              "expose_headers": ["Content-Type", "Authorization"],
-              "max_age": 600
-          }
-      },
+      origins=["https://meallensai.netlify.app", "http://localhost:5173", "http://localhost:3000"],
+      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      allow_headers=["Content-Type", "Authorization"],
       supports_credentials=True
   )
   
